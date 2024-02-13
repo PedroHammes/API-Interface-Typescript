@@ -1,4 +1,4 @@
-Crie um arquivo TS com as funções listadas abaixo. Utilize interfaces para tipar as respostas das requisições.
+Meu objetivo foi criar um arquivo TS com as funções listadas abaixo. Utilizei interfaces para tipar as respostas das requisições.
 
 1. Uma função que recebe um nome de usuário do GitHub e realiza uma requisição GET para obter os dados dele através da API pública do GitHub.
     1. A requisição deve ser feita através da seguinte URL:
@@ -32,3 +32,12 @@ Crie um arquivo TS com as funções listadas abaixo. Utilize interfaces para tip
 3. Função que mostra todos os usuários salvos.
 4. Função que calcula a soma de repositórios dos usuários salvos na lista e mostra o resultado.
 5. Uma função que mostre o top cinco de usuários com maior número de repositórios públicos (nome e quantidade)
+
+
+
+
+
+    
+    ```tsx
+    {exercício_proposto_por: "One Bit Code"}
+    ```
