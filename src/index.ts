@@ -1,6 +1,6 @@
 const allUsers = [] //todos os usuários do github
 
-interface githubUser {
+interface GithubUser {
     id: number;
     login: string;
     name: string;
@@ -24,7 +24,7 @@ async function getUser(userToSearch:string) {
         return console.log(Promise.reject('Usuário não encontrado'))
     }
 
-    const gitUser: githubUser = {
+    const gitUser: GithubUser = {
         id: user.id,
         login: user.login,
         name: user.name,
@@ -43,17 +43,19 @@ document.querySelector('#show-all-users-btn').addEventListener('click', (ev) => 
     showAllUser()
 })
 
-function showAllUser () {
+function showAllUser() {
     console.log('Exibindo usuários')
-    //para cada usuário do array, chama a função de criar card de usuário.
+    let returnMessage: string = ``
+
+    for (let i: number = 0; i < allUsers.length; i++) {
+        returnMessage += `Nome: ${allUsers[i].name}\n`+
+                        `Bio: ${allUsers[i].bio}\n\n`
+    }
+    return console.log(returnMessage)
 }
 
-function createUserCard(gitUser: githubUser) {
-    //cria um card para o usuário informado como parâmetro
-    const card: Element = document.createElement('div')
-    const name: Element = document.createElement('h3')
-    const bio: Element = document.createElement('p')
-
-    name.innerHTML = gitUser.name
-    bio.innerHTML = gitUser.bio
+function sumRepos() {
+    const init = 0
+    const reduceRepos = allUsers.reduce((repos, currentUser, public_repos) => repos + currentUser.public_repos, init)
+    return console.log(reduceRepos)
 }

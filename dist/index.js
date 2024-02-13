@@ -29,13 +29,15 @@ document.querySelector('#show-all-users-btn').addEventListener('click', (ev) => 
 });
 function showAllUser() {
     console.log('Exibindo usuários');
-    //para cada usuário do array, chama a função de criar card de usuário.
+    let returnMessage = ``;
+    for (let i = 0; i < allUsers.length; i++) {
+        returnMessage += `Nome: ${allUsers[i].name}\n` +
+            `Bio: ${allUsers[i].bio}\n\n`;
+    }
+    return console.log(returnMessage);
 }
-function createUserCard(gitUser) {
-    //cria um card para o usuário informado como parâmetro
-    const card = document.createElement('div');
-    const name = document.createElement('h3');
-    const bio = document.createElement('p');
-    name.innerHTML = gitUser.name;
-    bio.innerHTML = gitUser.bio;
+function sumRepos() {
+    const init = 0;
+    const reduceRepos = allUsers.reduce((repos, currentUser, public_repos) => repos + currentUser.public_repos, init);
+    return console.log(reduceRepos);
 }
