@@ -40,3 +40,12 @@ function sumRepos() {
     const reduceRepos = allUsers.reduce((repos, currentUser, public_repos) => repos + currentUser.public_repos, 0);
     return console.log(reduceRepos);
 }
+function searchUser(username) {
+    const userExists = allUsers.find((user) => user.login == username);
+    if (!userExists) {
+        return console.log('Não existe nenhum usuário na base de dados com o username informado');
+    }
+    else {
+        return console.log(`${userExists.name}\n${userExists.login}\n${userExists.bio}`);
+    }
+}
