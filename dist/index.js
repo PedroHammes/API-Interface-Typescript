@@ -49,3 +49,27 @@ function searchUser(username) {
         return console.log(`${userExists.name}\n${userExists.login}\n${userExists.bio}`);
     }
 }
+// function topFiveUsers() {
+//     let i: number = 0
+//     let top5 = []
+//     for (let i: number = 0; i < allUsers.length; i++) {
+//         top5.push(allUsers[i])
+//     }
+//     for (i < top5.length-1; i++;) {
+//         if (top5[i].public_repos < allUsers[i+1].public_repos) {
+//             top5.splice(i,i, allUsers[i+1])
+//             top5.splice(i++,i++, allUsers[i])
+//         }
+//     }
+//     console.log(top5)
+//     console.log(allUsers)
+// }
+function topFiveUsers() {
+    allUsers.sort((leftUser, rightUser) => {
+        if (leftUser.public_repos > rightUser.public_repos)
+            return -1;
+        if (leftUser.public_repos < rightUser.public_repos)
+            return 1;
+    });
+    return console.log(allUsers);
+}
