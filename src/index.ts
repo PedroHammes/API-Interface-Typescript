@@ -55,7 +55,6 @@ function showAllUser() {
 }
 
 function sumRepos() {
-    const init = 0
-    const reduceRepos = allUsers.reduce((repos, currentUser, public_repos) => repos + currentUser.public_repos, init)
+    const reduceRepos = allUsers.reduce((repos, currentUser, public_repos) => repos + currentUser.public_repos, 0)
     return console.log(reduceRepos)
 }
