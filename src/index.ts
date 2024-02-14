@@ -40,18 +40,31 @@ async function getUser(userToSearch:string) {
 
 document.querySelector('#show-all-users-btn').addEventListener('click', (ev) => {
     ev.preventDefault()
+
+    let node = document.getElementById('#81041208')
+    document.querySelector('#user-section').removeChild(node)
+
     showAllUser()
 })
 
 function showAllUser() {
-    console.log('Exibindo usuários')
-    let returnMessage: string = ``
-
     for (let i: number = 0; i < allUsers.length; i++) {
-        returnMessage += `Nome: ${allUsers[i].name}\n`+
-                        `Bio: ${allUsers[i].bio}\n\n`
+        createCard(allUsers[i])
     }
-    return console.log(returnMessage)
+}
+
+function createCard(user){
+    const div = document.createElement('div')
+    const h3 = document.createElement('h3')
+    const p = document.createElement('p')
+
+    div.id = user.id.toString()
+    h3.innerText = user.name
+    p.innerText = user.bio
+
+    div.appendChild(h3)
+    div.appendChild(p)
+    document.querySelector('#user-section').append(div)
 }
 
 function sumRepos() {
